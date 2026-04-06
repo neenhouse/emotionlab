@@ -81,7 +81,7 @@ export function HomePage({ onNavigate, onSelectAge }: HomePageProps) {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__badge">
-            <span className="hero__badge-dot" />
+            <span className="hero__badge-dot" aria-hidden="true" />
             The most AI-proof skill set a child can develop
           </div>
           <h1 className="hero__title">

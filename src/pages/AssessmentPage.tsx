@@ -75,13 +75,20 @@ export function AssessmentPage({ onNavigate, onComplete }: AssessmentPageProps) 
       <div className="container assessment__inner">
         {/* Progress bar */}
         <div className="assessment__progress">
-          <div className="assessment__progress-bar">
+          <div
+            className="assessment__progress-bar"
+            role="progressbar"
+            aria-valuenow={currentQ + 1}
+            aria-valuemin={1}
+            aria-valuemax={assessmentQuestions.length}
+            aria-label={`Question ${currentQ + 1} of ${assessmentQuestions.length}`}
+          >
             <div
               className="assessment__progress-fill"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <span className="assessment__progress-text">
+          <span className="assessment__progress-text" aria-hidden="true">
             {currentQ + 1} of {assessmentQuestions.length}
           </span>
         </div>
@@ -92,14 +99,15 @@ export function AssessmentPage({ onNavigate, onComplete }: AssessmentPageProps) 
           <h2 className="assessment__question-text">{question.scenario}</h2>
 
           {/* Options */}
-          <div className="assessment__options">
+          <div className="assessment__options" role="group" aria-label="Choose your response">
             {question.options.map((option, i) => (
               <button
                 key={i}
                 className={`assessment__option ${selectedOption === i ? 'selected' : ''}`}
                 onClick={() => handleSelect(i)}
+                aria-pressed={selectedOption === i}
               >
-                <span className="assessment__option-emoji">{option.emoji}</span>
+                <span className="assessment__option-emoji" aria-hidden="true">{option.emoji}</span>
                 <span className="assessment__option-label">{option.label}</span>
               </button>
             ))}

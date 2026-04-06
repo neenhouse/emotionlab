@@ -172,6 +172,30 @@
   color: var(--pink);
 }
 
+/* Empty state */
+.exercises-page__empty {
+  text-align: center;
+  padding: var(--space-20) var(--space-8);
+}
+
+.exercises-page__empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.exercises-page__empty-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.exercises-page__empty-desc {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
 @media (max-width: 768px) {
   .exercises-page__grid {
     grid-template-columns: 1fr;

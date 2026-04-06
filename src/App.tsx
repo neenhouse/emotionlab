@@ -71,7 +71,7 @@ function App() {
   return (
     <>
       <Header currentPage={currentPage} onNavigate={navigate} />
-      <main>{renderPage()}</main>
+      <main id="main-content">{renderPage()}</main>
     </>
   );
 }

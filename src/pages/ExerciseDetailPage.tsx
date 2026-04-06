@@ -109,7 +109,7 @@ export function ExerciseDetailPage({ exercise, isCompleted, onNavigate, onComple
 
         {step === 'complete' && (
           <div className="exercise-detail__section exercise-detail__complete animate-fade-in-up">
-            <div className="exercise-detail__complete-icon">🌟</div>
+            <div className="exercise-detail__complete-icon" aria-hidden="true">🌟</div>
             <h2 className="exercise-detail__complete-title">Great Job!</h2>
             <p className="exercise-detail__complete-text">
               You've completed "{exercise.title}". Taking time to reflect on emotions is how real growth happens.

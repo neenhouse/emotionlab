@@ -9,6 +9,7 @@
   font-size: 0.9375rem;
   transition: all var(--transition-base);
   white-space: nowrap;
+  min-height: 44px;
 }
 
 .btn--primary {
@@ -19,7 +20,13 @@
 
 .btn--primary:hover {
   background: linear-gradient(135deg, var(--violet-dark), #6D28D9);
-  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
 }
 
 .btn--secondary {
@@ -31,6 +38,11 @@
 .btn--secondary:hover {
   background: var(--violet-50);
   border-color: var(--violet);
+  transform: translateY(-1px);
+}
+
+.btn--secondary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn--lg {

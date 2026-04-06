@@ -34,12 +34,13 @@ export function ExercisesPage({ onNavigate, completedExercises, onSelectExercise
         </div>
 
         {/* Category Tabs */}
-        <div className="exercises-page__tabs">
+        <div className="exercises-page__tabs" role="group" aria-label="Filter by category">
           {categories.map((cat) => (
             <button
               key={cat}
               className={`exercises-page__tab ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat)}
+              aria-pressed={activeCategory === cat}
             >
               {cat === 'all' ? '✨ All' : `${categoryInfo[cat].icon} ${categoryInfo[cat].label}`}
             </button>
@@ -47,35 +48,47 @@ export function ExercisesPage({ onNavigate, completedExercises, onSelectExercise
         </div>
 
         {/* Exercise Grid */}
-        <div className="exercises-page__grid">
-          {filtered.map((exercise) => {
-            const isCompleted = completedExercises.includes(exercise.id);
-            const info = categoryInfo[exercise.category];
-            return (
-              <button
-                key={exercise.id}
-                className={`exercise-card ${isCompleted ? 'completed' : ''}`}
-                onClick={() => handleExerciseClick(exercise.id)}
-              >
-                {isCompleted && <div className="exercise-card__check">✓</div>}
-                <div className="exercise-card__icon">{exercise.icon}</div>
-                <div className="exercise-card__content">
-                  <div className="exercise-card__category" style={{ color: info.color }}>
-                    {info.icon} {info.label}
+        {filtered.length === 0 ? (
+          <div className="exercises-page__empty">
+            <div className="exercises-page__empty-icon">🔍</div>
+            <h3 className="exercises-page__empty-title">No exercises found</h3>
+            <p className="exercises-page__empty-desc">Try selecting a different category.</p>
+            <button className="btn btn--secondary" onClick={() => setActiveCategory('all')}>
+              Show All Exercises
+            </button>
+          </div>
+        ) : (
+          <div className="exercises-page__grid">
+            {filtered.map((exercise) => {
+              const isCompleted = completedExercises.includes(exercise.id);
+              const info = categoryInfo[exercise.category];
+              return (
+                <button
+                  key={exercise.id}
+                  className={`exercise-card ${isCompleted ? 'completed' : ''}`}
+                  onClick={() => handleExerciseClick(exercise.id)}
+                  aria-label={`${exercise.title}${isCompleted ? ' (completed)' : ''} — ${exercise.duration}, ${exercise.difficulty}`}
+                >
+                  {isCompleted && <div className="exercise-card__check" aria-hidden="true">✓</div>}
+                  <div className="exercise-card__icon" aria-hidden="true">{exercise.icon}</div>
+                  <div className="exercise-card__content">
+                    <div className="exercise-card__category" style={{ color: info.color }}>
+                      {info.icon} {info.label}
+                    </div>
+                    <h3 className="exercise-card__title">{exercise.title}</h3>
+                    <p className="exercise-card__desc">{exercise.description}</p>
+                    <div className="exercise-card__meta">
+                      <span className="exercise-card__duration">⏱ {exercise.duration}</span>
+                      <span className={`exercise-card__difficulty exercise-card__difficulty--${exercise.difficulty}`}>
+                        {exercise.difficulty}
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="exercise-card__title">{exercise.title}</h3>
-                  <p className="exercise-card__desc">{exercise.description}</p>
-                  <div className="exercise-card__meta">
-                    <span className="exercise-card__duration">⏱ {exercise.duration}</span>
-                    <span className={`exercise-card__difficulty exercise-card__difficulty--${exercise.difficulty}`}>
-                      {exercise.difficulty}
-                    </span>
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

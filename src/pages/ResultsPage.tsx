@@ -40,7 +40,7 @@ export function ResultsPage({ scores, onNavigate }: ResultsPageProps) {
     <div className="results">
       <div className="container results__inner">
         <div className="results__header">
-          <div className="results__celebration">🎉</div>
+          <div className="results__celebration" aria-hidden="true">🎉</div>
           <h1 className="results__title">Your EQ Profile</h1>
           <p className="results__subtitle">
             Here's how your emotional intelligence breaks down across 5 key dimensions.

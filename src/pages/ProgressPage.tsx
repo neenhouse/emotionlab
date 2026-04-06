@@ -34,22 +34,22 @@ export function ProgressPage({ progress, onNavigate }: ProgressPageProps) {
         {/* Stats Grid */}
         <div className="progress-page__stats">
           <div className="stat-card stat-card--streak">
-            <div className="stat-card__icon">🔥</div>
+            <div className="stat-card__icon" aria-hidden="true">🔥</div>
             <div className="stat-card__value">{progress.dailyStreak}</div>
             <div className="stat-card__label">Day Streak</div>
           </div>
           <div className="stat-card stat-card--exercises">
-            <div className="stat-card__icon">✅</div>
+            <div className="stat-card__icon" aria-hidden="true">✅</div>
             <div className="stat-card__value">{completedCount}/{totalExercises}</div>
             <div className="stat-card__label">Exercises Done</div>
           </div>
           <div className="stat-card stat-card--badges">
-            <div className="stat-card__icon">🏅</div>
+            <div className="stat-card__icon" aria-hidden="true">🏅</div>
             <div className="stat-card__value">{progress.badges.length}</div>
             <div className="stat-card__label">Badges Earned</div>
           </div>
           <div className="stat-card stat-card--progress">
-            <div className="stat-card__icon">📊</div>
+            <div className="stat-card__icon" aria-hidden="true">📊</div>
             <div className="stat-card__value">{completionPercent}%</div>
             <div className="stat-card__label">Complete</div>
           </div>
