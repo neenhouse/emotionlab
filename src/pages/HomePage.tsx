@@ -79,9 +79,6 @@ export function HomePage({ onNavigate, onSelectAge }: HomePageProps) {
     <div className="home">
       {/* Hero */}
       <section className="hero">
-        <div className="hero__bg-orb hero__bg-orb--1" />
-        <div className="hero__bg-orb hero__bg-orb--2" />
-        <div className="hero__bg-orb hero__bg-orb--3" />
         <div className="container hero__inner">
           <div className="hero__badge">
             <span className="hero__badge-dot" />

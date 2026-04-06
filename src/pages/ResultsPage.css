@@ -52,10 +52,8 @@
   font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--violet), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--violet-dark);
+  letter-spacing: -0.02em;
 }
 
 .results__overall-label {

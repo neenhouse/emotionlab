@@ -32,10 +32,8 @@
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.25rem;
-  background: linear-gradient(135deg, var(--violet), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--violet-dark);
+  letter-spacing: -0.01em;
 }
 
 .header__nav {
